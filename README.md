@@ -62,12 +62,24 @@ developing your own process.
 
 - Add a new toy when the toy form is submitted
 
-  - How I debugged:
+    In rails server it threw the error:
+
+      NameError (uninitialized constant ToysController::Toys):
+      
+      app/controllers/toys_controller.rb:10:in `create'
+
+    in "create" it was typed as "Toys.all" instead of "Toy.all"
+
+
 
 - Update the number of likes for a toy
 
-  - How I debugged:
+    i had to add into #update 
+
+      render json: toy, status: 201
 
 - Donate a toy to Goodwill (and delete it from our database)
 
-  - How I debugged:
+  
+  in rails c it said "no route matches delete"
+  had to add :destroy to routes
